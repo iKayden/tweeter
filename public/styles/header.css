@@ -1,0 +1,17 @@
+.profile-picture {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: flex-end;
+  height: 400px;
+  width: 100vw;
+}
+.profile-name {
+  display: flex;
+  justify-content: center;
+}
+header {
+  background-color: #fee440;
+  background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+}
