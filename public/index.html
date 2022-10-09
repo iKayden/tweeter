@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="/styles/main.css">
     <!-- New Tweet CSS -->
     <link rel="stylesheet" href="/styles/new-tweet.css">
+    <!-- Tweet List CSS -->
+    <link rel="stylesheet" href="/styles/tweet-list.css">
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
@@ -44,7 +46,7 @@
         <i class="fa-solid fa-angles-down"></i>
       </span>
     </nav>
-    <header>
+    <header id="header-main">
       <div class="profile-picture">
         <img src="/images/profile-hex.png" alt="Profile picture">
       </div>
@@ -70,10 +72,28 @@
         <!-- End of tweet form -->
 
       </section>
-      <h3 class="tweet-header">Tweet</h3>
-      <p class="placeholder-main">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam laudantium eveniet mollitia at molestias alias laboriosam. Ipsum optio voluptatem vel nam odit repellendus excepturi. Error praesentium at qui? Porro, tenetur.
-     </p>
+      <!-- Tweet List form -->
+      <article class="tweet-list-item">
+        <header class="tweet-list-header">
+          <span class="tweet-list-header-wrap">
+            <span class="tweet-list-avatar-name"> 
+              <img class="tweet-list-avatar" src="/images/test.png" alt="Profile picture"/>
+              <p class="tweet-list-username">John Wick</p>
+            </span>
+            <p class="tweet-list-handle">@johnwick</p>
+          </span>
+          <span class="tweet-list-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit earum incidunt itaque omnis ducimus perferendis nihil numquam enim atque?    
+          </span>
+        </header>
+        <footer>
+          <span>10 days ago</span>
+          <span class="tweet-list-footer-icons">
+          <i class="fa-solid fa-flag"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart-circle-plus"></i>
+          </span>
+        </footer>
+      </article>
     </main>
     <script src="./scripts/composer-char-counter.js"></script>
   </body>
