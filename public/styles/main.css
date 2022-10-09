@@ -1,0 +1,11 @@
+.container {
+  border: 1px solid red;
+  display: flex;
+  width: 90vw;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  
+}
