@@ -24,6 +24,7 @@ header.tweet-list-header {
 span.tweet-list-text {
   margin-bottom: 25px;
   font-weight: 600;
+  align-self: baseline;
 }
 
 p.tweet-list-handle {
