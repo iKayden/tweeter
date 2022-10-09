@@ -60,3 +60,6 @@ footer {
   justify-content: space-between;
   padding: auto;
 }
+footer i:hover {
+  color: goldenrod;
+}
