@@ -12,6 +12,8 @@
   justify-content: center;
 }
 #header-main {
-  background-color: #fee440;
-  background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+  width: 100vw;
+  background-color: #a2d6f9;
+background-image: url("https://www.transparenttextures.com/patterns/food.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

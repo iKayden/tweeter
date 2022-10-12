@@ -64,5 +64,25 @@ $(document).ready(function () {
     }
   };
 
+  const $tweetForm = $("#tweet-form");
+  $tweetForm.on('submit', (e) => {
+    // prevent browser from reloading
+    e.preventDefault();
+    // Parse/encode data into usable format
+    const parsedData = $tweetForm.serialize();
+    // Create our own post route handler based on jQuery
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: parsedData
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log("Error:",err);
+    })
+  })
+
   renderTweets(data);
 });
