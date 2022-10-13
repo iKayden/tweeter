@@ -3,6 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
     <!-- External CSS -->
     <link
@@ -10,32 +11,43 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
       type="text/css"
     />
-
-    <!-- External Google Fonts (Source Sans Pro and Bungee) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
-
     <!-- Internal CSS Styles from the Styles folder -->
     <link rel="stylesheet" href="/styles/nav.css" />
-    <link rel="stylesheet" href="/styles/header.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/new-tweet.css">
-    <link rel="stylesheet" href="/styles/tweet-list.css">
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" />
+    <link rel="stylesheet" href="/styles/tweet-list.css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
     <!-- Media Styles -->
-    <link rel="stylesheet" href="/styles/media-styles.css">
+    <link rel="stylesheet" href="/styles/media-styles.css" />
 
-    <!--=== External JS ===-->
+    <!-- External Google Fonts (Source Sans Pro and Bungee) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--=== External JS (CDN) ===-->
     <!-- jQuery Library  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Time Ago Lib to display time -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+      integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- Font Awesome JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- App JS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- === Internal JS ===-->
     <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
 
@@ -44,45 +56,50 @@
     <nav>
       <span class="first-span muted">tweeter</span>
       <span class="nav-bar-second-div">
-        <p class ="muted"><b>Write</b> a new tweet</p>
+        <p class="muted"><b>Write</b> a new tweet</p>
         <i class="fa-solid fa-angles-down" id="navbar-toggle"></i>
       </span>
     </nav>
     <div id="flex-body">
-    <header id="header-main">
-      <div class="profile-picture">
-        <img src="/images/profile-hex.png" alt="Profile picture">
-      </div>
-      <br>
-      <div class="profile-name">
-        <h2>Lesya Ukrainka</h2>
-      </div>
-    </header>
+      <header id="header-main">
+        <div class="profile-picture">
+          <img src="/images/profile-hex.png" alt="Profile picture" />
+        </div>
+        <br />
+        <div class="profile-name">
+          <h2>Lesya Ukrainka</h2>
+        </div>
+      </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <div id="alert-popup"></div>
-      <section class="new-tweet">
-        <!-- Form to write and submit a tweet -->
-        <form id="tweet-form">
-          <label for="tweet-text" id="placeholder-label">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit" id="tweet-btn"><span class="btn">Tweet</span></button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-        <!-- End of tweet form -->
-      </section>
-      <!-- Tweet List generation node -->
-      <section id="tweets-container"></section>
-      
-      
-      <button id="go-up-btn">
-        <i class="fa-solid fa-angles-up"></i>
-      </button>
-    </main>
-  </div>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <div id="alert-popup"></div>
+        <section class="new-tweet">
+          <!-- Form to write and submit a tweet -->
+          <form id="tweet-form">
+            <label for="tweet-text" id="placeholder-label"
+              >What are you humming about?</label
+            >
+            <textarea name="text" id="tweet-text"></textarea>
+            <div>
+              <button type="submit" id="tweet-btn">
+                <span class="btn">Tweet</span>
+              </button>
+              <output name="counter" class="counter" for="tweet-text"
+                >140</output
+              >
+            </div>
+          </form>
+          <!-- End of tweet form -->
+        </section>
+        <!-- Tweet List generation node -->
+        <section id="tweets-container"></section>
+
+        <button id="go-up-btn">
+          <i class="fa-solid fa-angles-up"></i>
+        </button>
+      </main>
+    </div>
     <script src="./scripts/composer-char-counter.js"></script>
   </body>
 </html>
