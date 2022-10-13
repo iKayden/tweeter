@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  // Cross-site Scripting
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
   // Fetching tweets function
   const createTweetElement = (tweet) => {
     // Write HTML markup to render our data from DB
@@ -13,7 +19,7 @@ $(document).ready(function () {
       </span>
       <p class="tweet-list-handle">${tweet.user.handle}</p>
       </span>
-      <span class="tweet-list-text">${tweet.content.text}    
+      <span class="tweet-list-text">${escape(tweet.content.text)}    
       </span>
       </header>
       <footer>
@@ -56,38 +62,46 @@ $(document).ready(function () {
         console.log(`We have an Error ${err}`);
       });
   };
-
   $loadTweets();
+
+  // Stylish Error Pop up setup
+  const $alertDiv = $("#alert-popup");
+  $alertDiv.on("click", () => { //Making it hide on click
+    $alertDiv.hide();
+  })
 
   // Form POST route handler by jQuery
   const $tweetForm = $("#tweet-form");
-  $tweetForm.on("submit", (e) => {
-    // prevent browser from reloading
-    e.preventDefault();
-    // Capturing the text area for the tweets to do the validation 
+  $tweetForm.on("submit", (e) => { //Capturing submitting phase event
+    e.preventDefault();  // preventing browser from reloading
+    
+    // Capturing the text area for the tweets to do the validation
     // before the serializing is even made
     const $textValue = $("#tweet-text").val().trim();
     if ($textValue === "") {
-      alert("Tweet can't be empty!");
+      $alertDiv.text("Tweet can't be empty")
+      .addClass("error-popup") // adding CSS markup for alert in our popup div
+      .show() // showing us the popup alert if it was used and closed before
       return;
     } else if ($textValue.length > 140) {
-      alert("Tweet exceeds maximum length of the characters.");
+      $alertDiv.text("Tweet exceeds maximum length of the characters")
+      .addClass("error-popup") // adding CSS markup for alert in our popup div
+      .show() // showing us the popup alert if it was used and closed before
       return;
     }
-    
+
     // After validation is done we will parse/encode data into usable format
     const parsedData = $tweetForm.serialize();
-    // Create our own POST route handler based on jQuery
-    $.ajax({
+    $.ajax({ // Create our own POST route handler based on jQuery
       url: "/tweets",
       method: "POST",
-      data: parsedData,
+      data: parsedData, // sending our tweet/data object with the response 
     })
-      .then((tweet) => {
-        // render/prepend the tweet to the top of the page without reloading
-        $loadTweets(tweet);
-        // clean up the text are after the tweet has been posted
-        $tweetForm[0].childNodes[3].value = ""
+    // render/prepend the tweet to the top of the page without reloading
+      .then((tweet) => { 
+        $loadTweets(tweet); 
+        // clean up the text area after the tweet has been posted
+        $tweetForm[0].childNodes[3].value = ""; //traversing DOM for extra speed 8)
       })
       .catch((err) => {
         console.log(`${err}`);
