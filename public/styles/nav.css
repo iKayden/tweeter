@@ -1,19 +1,17 @@
 nav {
-
   height: 120px;
   width: 100vw;
-  background-color: #42a5f5;
-  color: #FFFFFF;
+  background-color: transparent;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  
 }
 .first-span {
- font-family: "Bungee", sans-serif;
- margin-left: 1.5em;
+  font-family: "Bungee", sans-serif;
+  margin-left: 1.5em;
 }
 .nav-bar-second-div {
   display: flex;
@@ -25,4 +23,20 @@ nav {
 .fa-angles-down {
   color: red;
   margin-top: -10px;
+}
+
+#navbar-toggle {
+  cursor: pointer;
+}
+#navbar-toggle:hover {
+  animation: bounce 1s ease infinite;
+}
+@keyframes bounce {
+  0% {transform: translateY(-10%);}
+  50% {transform: translateY(15%);}
+  100% {transform: translateY(-10%);}
+}
+
+.muted {
+  user-select: none;
 }

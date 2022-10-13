@@ -46,6 +46,27 @@ $(document).ready(function () {
       $($tweetsContainer).prepend($tweet);
     }
   };
+  
+    // Stylish Error Pop up setup
+    const $alertDiv = $("#alert-popup");
+    $alertDiv.on("click", () => { //Making it hide on click
+      $alertDiv.hide();
+    })
+
+  // Navbar tweet area toggle
+  const $navbarToggleBtn = $("#navbar-toggle");
+  $navbarToggleBtn.on("click", () => { // redo or rethink this functionality
+    $tweetForm.toggle();
+    if ($tweetForm.is(":visible")){
+    $("#tweet-text").focus();//user can begin typing right after clicking the button
+  }});
+
+
+  // function to scroll to the top of the page
+  function scrollTo(x = 0, y = 0) {
+    window.scrollTo(x, y);
+  }
+
 
   // Tweet Form GET route handler by jQuery
   const $loadTweets = function () {
@@ -63,12 +84,6 @@ $(document).ready(function () {
       });
   };
   $loadTweets();
-
-  // Stylish Error Pop up setup
-  const $alertDiv = $("#alert-popup");
-  $alertDiv.on("click", () => { //Making it hide on click
-    $alertDiv.hide();
-  })
 
   // Form POST route handler by jQuery
   const $tweetForm = $("#tweet-form");

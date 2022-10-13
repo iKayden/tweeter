@@ -15,4 +15,6 @@ $(document).ready(function () {
     // using the css class "counter-negative" (in new-tweet.css)
     charCounter.toggleClass("counter-negative", charLimit < 0);
   });
+  const $goUpBtn = $("#go-up-btn")
+  $goUpBtn.on("scroll")
 });

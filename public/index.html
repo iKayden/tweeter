@@ -39,10 +39,10 @@
   <body>
     <!-- Top nav bar -->
     <nav>
-      <span class="first-span">tweeter</span>
+      <span class="first-span muted">tweeter</span>
       <span class="nav-bar-second-div">
-        <p><b>Write</b> a new tweet</p>
-        <i class="fa-solid fa-angles-down"></i>
+        <p class ="muted"><b>Write</b> a new tweet</p>
+        <i class="fa-solid fa-angles-down" id="navbar-toggle"></i>
       </span>
     </nav>
     <header id="header-main">
@@ -51,7 +51,7 @@
       </div>
       <br>
       <div class="profile-name">
-        <h2>Sir William Wallace</h2>
+        <h2>Lesya Ukrainka</h2>
       </div>
     </header>
 
@@ -72,7 +72,10 @@
       </section>
       <!-- Tweet List generation node -->
       <section id="tweets-container"></section>
-
+      
+      <button id="go-up-btn">
+        <i class="fa-solid fa-angles-up" id="navbar-up"></i>
+      </button>
     </main>
     <script src="./scripts/composer-char-counter.js"></script>
   </body>
