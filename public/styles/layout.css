@@ -25,3 +25,10 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
  
+.muted {
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}

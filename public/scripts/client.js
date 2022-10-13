@@ -61,13 +61,6 @@ $(document).ready(function () {
     $("#tweet-text").focus();//user can begin typing right after clicking the button
   }});
 
-
-  // function to scroll to the top of the page
-  function scrollTo(x = 0, y = 0) {
-    window.scrollTo(x, y);
-  }
-
-
   // Tweet Form GET route handler by jQuery
   const $loadTweets = function () {
     $.ajax({
