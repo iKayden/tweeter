@@ -21,6 +21,7 @@ header.tweet-list-header {
   flex: auto;
   border-bottom: 3px solid #545149;
 }
+
 span.tweet-list-text {
   margin-bottom: 25px;
   font-weight: 600;
@@ -62,9 +63,11 @@ footer {
   justify-content: space-between;
   padding: auto;
 }
+
 footer i {
   margin: 0 10px;
 }
+
 footer i:hover {
   color: goldenrod;
 }

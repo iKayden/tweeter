@@ -1,10 +1,11 @@
 $(document).ready(function () {
-  // Cross-site Scripting
+  // Cross-site Scripting protection
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+
   // Fetching tweets function
   const createTweetElement = (tweet) => {
     // Write HTML markup to render our data from DB
@@ -38,7 +39,7 @@ $(document).ready(function () {
   const $tweetsContainer = $("#tweets-container");
   // Function for rendering an array of objects (tweets) on the page
   const renderTweets = function (tweets) {
-    // loop through tweets
+    // loop through existing tweets
     for (const tweet of tweets) {
       // calls HTML markup building function for each tweet
       const $tweet = createTweetElement(tweet);
@@ -55,7 +56,7 @@ $(document).ready(function () {
 
   // Navbar tweet area toggle
   const $navbarToggleBtn = $("#navbar-toggle");
-  $navbarToggleBtn.on("click", () => { // redo or rethink this functionality
+  $navbarToggleBtn.on("click", () => {
     $tweetForm.toggle();
     if ($tweetForm.is(":visible")){
     $("#tweet-text").focus();//user can begin typing right after clicking the button

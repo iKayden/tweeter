@@ -7,10 +7,12 @@
   height: 400px;
   width: 100vw;
 }
+
 .profile-name {
   display: flex;
   justify-content: center;
 }
+
 #header-main {
   width: 100vw;
   background-color: #a2d6f9;

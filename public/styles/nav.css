@@ -28,9 +28,11 @@ nav {
 #navbar-toggle {
   cursor: pointer;
 }
+
 #navbar-toggle:hover {
   animation: bounce 1s ease infinite;
 }
+
 @keyframes bounce {
   0% {transform: translateY(-10%);}
   50% {transform: translateY(15%);}
