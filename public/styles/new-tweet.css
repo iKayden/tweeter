@@ -8,7 +8,7 @@ section.new-tweet {
   flex-flow: row wrap;
   flex-direction: column;
   padding: 0.5em;
-  width: 90vw;
+  width: 100%;
 }
 
 #placeholder-label {

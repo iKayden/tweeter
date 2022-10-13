@@ -15,7 +15,8 @@
     "chance": "^1.0.2",
     "express": "^4.13.4",
     "http-server": "^14.1.1",
-    "md5": "^2.1.0"
+    "md5": "^2.1.0",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"

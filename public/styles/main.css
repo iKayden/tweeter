@@ -1,10 +1,5 @@
 .container {
-  display: flex;
-  width: 100vw;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  width: 90vw;
   margin: 0 auto;
 }
 
