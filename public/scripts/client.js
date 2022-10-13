@@ -6,7 +6,9 @@ $(document).ready(function () {
       <header class="tweet-list-header">
       <span class="tweet-list-header-wrap">
       <span class="tweet-list-avatar-name"> 
-      <img class="tweet-list-avatar" src="${tweet.user.avatars}" alt="Profile picture"/>
+      <img class="tweet-list-avatar" src="${
+        tweet.user.avatars
+      }" alt="Profile picture"/>
       <p class="tweet-list-username">${tweet.user.name}</p>
       </span>
       <p class="tweet-list-handle">${tweet.user.handle}</p>
@@ -46,7 +48,7 @@ $(document).ready(function () {
       method: "GET",
     })
       .then((tweets) => {
-        // calling the looping and HTML handling function that will do 
+        // calling the looping and HTML handling function that will do
         // all the work needed on each tweet in the Data Base
         renderTweets(tweets);
       })
@@ -62,6 +64,15 @@ $(document).ready(function () {
   $tweetForm.on("submit", (e) => {
     // prevent browser from reloading
     e.preventDefault();
+    const textValue = $("#tweet-text").val().trim();
+    if (textValue === "") {
+      alert("Tweet can't be empty!");
+      return;
+    } else if (textValue.length > 140) {
+      alert("Tweet exceeds maximum length of the characters.");
+      return;
+    }
+    
     // Parse/encode data into usable format
     const parsedData = $tweetForm.serialize();
     // Create our own post route handler based on jQuery
@@ -74,7 +85,7 @@ $(document).ready(function () {
         console.log(res);
       })
       .catch((err) => {
-        console.log(`We have an Error ${err}`);
+        console.log(`${err}`);
       });
   });
 });
