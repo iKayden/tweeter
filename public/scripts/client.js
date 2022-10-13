@@ -64,25 +64,30 @@ $(document).ready(function () {
   $tweetForm.on("submit", (e) => {
     // prevent browser from reloading
     e.preventDefault();
-    const textValue = $("#tweet-text").val().trim();
-    if (textValue === "") {
+    // Capturing the text area for the tweets to do the validation 
+    // before the serializing is even made
+    const $textValue = $("#tweet-text").val().trim();
+    if ($textValue === "") {
       alert("Tweet can't be empty!");
       return;
-    } else if (textValue.length > 140) {
+    } else if ($textValue.length > 140) {
       alert("Tweet exceeds maximum length of the characters.");
       return;
     }
     
-    // Parse/encode data into usable format
+    // After validation is done we will parse/encode data into usable format
     const parsedData = $tweetForm.serialize();
-    // Create our own post route handler based on jQuery
+    // Create our own POST route handler based on jQuery
     $.ajax({
       url: "/tweets",
       method: "POST",
       data: parsedData,
     })
-      .then((res) => {
-        console.log(res);
+      .then((tweet) => {
+        // render/prepend the tweet to the top of the page without reloading
+        $loadTweets(tweet);
+        // clean up the text are after the tweet has been posted
+        $tweetForm[0].childNodes[3].value = ""
       })
       .catch((err) => {
         console.log(`${err}`);
