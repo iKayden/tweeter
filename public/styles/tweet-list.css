@@ -26,6 +26,7 @@ span.tweet-list-text {
   margin-bottom: 25px;
   font-weight: 600;
   align-self: baseline;
+  overflow-wrap: anywhere;
 }
 
 p.tweet-list-handle {
