@@ -50,9 +50,16 @@ $(document).ready(function () {
   
     // Stylish Error Pop up setup
     const $alertDiv = $("#alert-popup");
-    $alertDiv.on("click", () => { //Making it hide on click
+    // Error handling functions 
+    // Added two for more responsive way
+    $(function(){ // !(Err Handling Fix) One with fading out on delay
+      $alertDiv.delay(4000).fadeOut();
+    });
+    // Works but the delay function works only once without page reload
+    $alertDiv.on("click", () => { //Second one making it hide on click
       $alertDiv.hide();
-    })
+      
+    }); 
 
   // Navbar tweet area toggle
   const $navbarToggleBtn = $("#navbar-toggle");
@@ -87,7 +94,7 @@ $(document).ready(function () {
     // Capturing the text area for the tweets to do the validation
     // before the serializing is even made
     const $textValue = $("#tweet-text").val().trim();
-    if ($textValue === "") {
+    if (!$textValue) { // ! Problem Decomposition Fix
       $alertDiv.text("Tweet can't be empty")
       .addClass("error-popup") // adding CSS markup for alert in our popup div
       .show() // showing us the popup alert if it was used and closed before
@@ -111,6 +118,7 @@ $(document).ready(function () {
         $loadTweets(tweet); 
         // clean up the text area after the tweet has been posted
         $tweetForm[0].childNodes[3].value = ""; //traversing DOM for extra speed 8)
+        $(".counter").val(140) // !(Func Req. fix)backs the counter to 140
       })
       .catch((err) => {
         console.log(`${err}`);
